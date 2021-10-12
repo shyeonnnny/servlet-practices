@@ -1,4 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<% 
+%>
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -15,7 +17,7 @@
 			</tr>
 		</table>
 		<br>
-		<a href="<%=request.getContextPath() %>">메인으로 돌아가기</a>
+		<a href="/guestbook2/gb">메인으로 돌아가기</a>
 	</form>
 </body>
 </html>
