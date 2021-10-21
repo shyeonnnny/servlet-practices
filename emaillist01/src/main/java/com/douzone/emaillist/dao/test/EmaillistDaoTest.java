@@ -21,9 +21,9 @@ public class EmaillistDaoTest {
 
 	private static void insertTest() {
 		EmaillistVo vo = new EmaillistVo();
-		vo.setFirstName("김");
-		vo.setLastName("승현2");
-		vo.setEmail("sh970807@naver.com");
+		vo.setFirstName("마");
+		vo.setLastName("이콜");
+		vo.setEmail("michol@gmail.com");
 		
 		new EmaillistDao().insert(vo);
 	}

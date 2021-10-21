@@ -9,7 +9,6 @@ import java.util.ArrayList;
 import java.util.List;
 import com.douzone.emaillist.vo.EmaillistVo;
 
-
 public class EmaillistDao {
 	public List<EmaillistVo> findAll() {
 		List<EmaillistVo> result = new ArrayList<>();
@@ -23,13 +22,12 @@ public class EmaillistDao {
 			
 			//3. SQL 준비
 			String sql = 
-				"select no, first_name, last_name, email"
-				+ "	from emaillist"
-				+ "	order by no desc";
+				"   select no, first_name, last_name, email" +
+				"     from emaillist" +
+				" order by no desc";
 			pstmt = conn.prepareStatement(sql);
 			
 			//4. 바인딩(binding)
-			// 변수가 없으면 바인딩 필요없음
 			
 			//5. SQL 실행
 			rs = pstmt.executeQuery();
@@ -38,13 +36,13 @@ public class EmaillistDao {
 				Long no = rs.getLong(1);
 				String firstName = rs.getString(2);
 				String lastName = rs.getString(3);
-				String email = rs.getString(4);
+				String authorNamemail = rs.getString(4);
 				
 				EmaillistVo vo = new EmaillistVo();
 				vo.setNo(no);
 				vo.setFirstName(firstName);
 				vo.setLastName(lastName);
-				vo.setEmail(email);
+				vo.setEmail(authorNamemail);
 				
 				result.add(vo);
 			}
@@ -70,6 +68,7 @@ public class EmaillistDao {
 		
 		return result;
 	}
+	
 	public boolean insert(EmaillistVo vo) {
 		boolean result = false;
 		Connection conn = null;
@@ -80,9 +79,9 @@ public class EmaillistDao {
 			
 			//3. SQL 준비
 			String sql = 
-					"insert"
-					+ "	into emaillist"
-					+ "	values (null, ?, ?, ?)";
+				" insert" +
+				"   into emaillist" +
+				" values (null, ?, ?, ?)";
 			pstmt = conn.prepareStatement(sql);
 			
 			//4. 바인딩(binding)
@@ -112,6 +111,7 @@ public class EmaillistDao {
 		
 		return result;
 	}
+	
 	private Connection getConnection() throws SQLException {
 		Connection conn = null;
 		try {
@@ -124,7 +124,7 @@ public class EmaillistDao {
 		} catch (ClassNotFoundException e) {
 			System.out.println("드라이버 로딩 실패:" + e);
 		}
+
 		return conn;
 	}
-
 }
